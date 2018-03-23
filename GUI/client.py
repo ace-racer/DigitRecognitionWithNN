@@ -3,12 +3,14 @@ from tkinter import *
 import MNISTImages
 import random as rd
 from PIL import Image, ImageTk
+import cnn_predict_image
 
 
 
 NUM_TEST_IMAGES = 10000
 TEST_IMAGES_LOCATION = "H:\\KE4102-Sam\\code\\MNIST-data\\test_images\\test_image_{0}.png"
 labels = []
+current_test_sample = -1
 
 def get_next_image_imageid_location():
     nextid = rd.randint(0, NUM_TEST_IMAGES - 1)
@@ -36,8 +38,18 @@ def generate_click():
     label.grid()
     labels.append(label)
 
+    predict_button = Button(root, command = predict_click, text = "Predict this digit!")
+    predict_button.grid()
 
 
+def predict_click():
+    predicted_digit = "Test sample not selected correctly"
+    if current_test_sample != -1:
+        predicted_digit = "The predicted digit is: " + str(cnn_predict_image.predict_digit(current_test_sample))
+
+    predicted_text = Text(root, height=2, width=60)
+    predicted_text.insert(END, predicted_digit)
+    predicted_text.grid()
 
 
 # GUI code below
