@@ -10,6 +10,8 @@ import cnn_predict_image
 NUM_TEST_IMAGES = 10000
 TEST_IMAGES_LOCATION = "H:\\KE4102-Sam\\code\\MNIST-data\\test_images\\test_image_{0}.png"
 labels = []
+buttons = []
+texts = []
 current_test_sample = -1
 
 def get_next_image_imageid_location():
@@ -28,9 +30,12 @@ def generate_click():
     image_id, image_location = get_next_image_imageid_location()
     image = Image.open(image_location)
 
-    # remove all existing labels from the UI
-    for label in labels:
-        label.destroy()
+    # assign value to global variable
+    global current_test_sample
+    current_test_sample = image_id
+
+    # remove all dependent widgets
+    remove_widgets()
 
     photo = ImageTk.PhotoImage(image)
     label = Label(image=photo)
@@ -40,17 +45,38 @@ def generate_click():
 
     predict_button = Button(root, command = predict_click, text = "Predict this digit!")
     predict_button.grid()
+    buttons.append(predict_button)
 
 
 def predict_click():
+    # remove existing predictions - if predict button is clicked multiple times
+    for text in texts:
+        text.destroy()
+
     predicted_digit = "Test sample not selected correctly"
+
+    global current_test_sample
     if current_test_sample != -1:
         predicted_digit = "The predicted digit is: " + str(cnn_predict_image.predict_digit(current_test_sample))
 
     predicted_text = Text(root, height=2, width=60)
     predicted_text.insert(END, predicted_digit)
     predicted_text.grid()
+    texts.append(predicted_text)
 
+
+def remove_widgets():
+    # remove all existing labels from the UI
+    for label in labels:
+        label.destroy()
+
+    # remove all existing labels from the UI
+    for button in buttons:
+        button.destroy()
+
+    # remove all existing labels from the UI
+    for text in texts:
+        text.destroy()
 
 # GUI code below
 root = tkinter.Tk()
