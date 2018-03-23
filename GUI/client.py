@@ -8,7 +8,7 @@ from PIL import Image, ImageTk
 
 NUM_TEST_IMAGES = 10000
 TEST_IMAGES_LOCATION = "H:\\KE4102-Sam\\code\\MNIST-data\\test_images\\test_image_{0}.png"
-
+labels = []
 
 def get_next_image_imageid_location():
     nextid = rd.randint(0, NUM_TEST_IMAGES - 1)
@@ -25,10 +25,17 @@ def get_next_image_imageid_location():
 def generate_click():
     image_id, image_location = get_next_image_imageid_location()
     image = Image.open(image_location)
+
+    # remove all existing labels from the UI
+    for label in labels:
+        label.destroy()
+
     photo = ImageTk.PhotoImage(image)
     label = Label(image=photo)
     label.image = photo  # keep a reference!
     label.grid()
+    labels.append(label)
+
 
 
 
@@ -44,6 +51,8 @@ T.grid()
 # Add a button to generate the next image
 generate_button = Button(root, command = generate_click, text = "Generate next image")
 generate_button.grid()
+
+
 
 root.mainloop()
 

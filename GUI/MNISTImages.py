@@ -75,6 +75,7 @@ def get_test_images():
 def generate_test_image(id):
     images = get_test_images()
     test_image_location = TEST_IMAGES_LOCATION.format(id)
+    print("Image generated here: " + test_image_location)
     img = scipy.misc.toimage(scipy.misc.imresize(images[id,:,:] * -1 + 256, 10.)).save(test_image_location)
 
 
