@@ -1,3 +1,4 @@
 .ipynb_checkpoints/
 MNIST-data/
 mnist_convnet_model/
+GUI/__pycache__/

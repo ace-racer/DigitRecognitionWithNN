@@ -13,6 +13,8 @@ MNIST_TEST_IMAGES_LOCATION = "H:\\KE4102-Sam\\code\MNIST-data\\t10k-images.idx3-
 TEST_IMAGES_LOCATION = "H:\\KE4102-Sam\\code\\MNIST-data\\test_images\\test_image_{0}.png"
 
 # Code copied from https://github.com/datapythonista/mnist/blob/master/mnist/__init__.py
+# All non required dependencies have been removed
+
 
 def parse_idx(fd):
     """Parse an IDX file, and return it as a numpy array.
@@ -70,10 +72,13 @@ def get_test_images():
         images = parse_idx(fr)
     return images
 
-def get_test_image(images, id):
+def generate_test_image(id):
+    images = get_test_images()
     test_image_location = TEST_IMAGES_LOCATION.format(id)
     img = scipy.misc.toimage(scipy.misc.imresize(images[id,:,:] * -1 + 256, 10.)).save(test_image_location)
-    print("Created")
 
-test_images = get_test_images()
-get_test_image(test_images, 1)
+
+
+
+# Functions to test
+# get_test_image(1)
