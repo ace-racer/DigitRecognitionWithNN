@@ -1,0 +1,2 @@
+model_checkpoint_path: "H:\\KE4102-Sam\\code\\GUI\\trained_model\\mnist_model.ckpt"
+all_model_checkpoint_paths: "H:\\KE4102-Sam\\code\\GUI\\trained_model\\mnist_model.ckpt"

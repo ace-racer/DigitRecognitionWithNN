@@ -23,6 +23,9 @@ See extensive documentation for the tutorial at
 https://www.tensorflow.org/versions/master/tutorials/mnist/pros/index.html
 """
 
+#constants
+LOCATION_TO_SAVE = "H:\\KE4102-Sam\\code\\GUI\\trained_model\\mnist_model.ckpt"
+
 #import modules
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
@@ -108,7 +111,7 @@ for i in range(20000):
     print("step %d, training accuracy %g"%(i, train_accuracy))
   train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
 
-save_path = saver.save(sess, "model2.ckpt")
+save_path = saver.save(sess, LOCATION_TO_SAVE)
 print ("Model saved in file: ", save_path)
 
 print("test accuracy %g"%accuracy.eval(feed_dict={

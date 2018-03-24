@@ -57,7 +57,7 @@ def predict_click():
 
     global current_test_sample
     if current_test_sample != -1:
-        predicted_digit = "The predicted digit is: " + str(cnn_predict_image.predict_digit(current_test_sample))
+        predicted_digit = cnn_predict_image.predict_digit(current_test_sample)
 
     predicted_text = Text(root, height=2, width=60)
     predicted_text.insert(END, predicted_digit)

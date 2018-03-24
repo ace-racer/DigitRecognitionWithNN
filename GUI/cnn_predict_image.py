@@ -94,7 +94,7 @@ def predictint(imvalue):
     """
     with tf.Session() as sess:
         sess.run(init_op)
-        saver.restore(sess, "model2.ckpt")
+        saver.restore(sess, "trained_model/mnist_model.ckpt")
         # print ("Model restored.")
 
         prediction = tf.argmax(y_conv, 1)
@@ -111,14 +111,17 @@ def predict_digit(test_sample_number):
     eval_data = mnist.test.images  # Returns np.array
 
     image_to_predict = eval_data[test_sample_number, :]
-    print(image_to_predict)
+    predicted_digit = predictint(image_to_predict)
+    if predicted_digit is None:
+        return "No digit predicted. Try another sample."
+    return "The predicted digit is: " + str(predicted_digit[0])
 
 
 def main(argv):
     """
     Main function.
     """
-    predict_digit(int(argv))
+    print(predict_digit(int(argv)))
 
 
 if __name__ == "__main__":
