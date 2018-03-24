@@ -4,11 +4,11 @@ import MNISTImages
 import random as rd
 from PIL import Image, ImageTk
 import cnn_predict_image
-
+import configurations
 
 
 NUM_TEST_IMAGES = 10000
-TEST_IMAGES_LOCATION = "H:\\KE4102-Sam\\code\\MNIST-data\\test_images\\test_image_{0}.png"
+TEST_IMAGES_LOCATION = configurations.TEST_IMAGES_LOCATION
 labels = []
 buttons = []
 texts = []

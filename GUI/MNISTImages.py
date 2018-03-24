@@ -8,9 +8,10 @@ import array
 import tempfile
 import numpy as np
 import matplotlib.pyplot as plt
+import configurations
 
-MNIST_TEST_IMAGES_LOCATION = "H:\\KE4102-Sam\\code\MNIST-data\\t10k-images.idx3-ubyte"
-TEST_IMAGES_LOCATION = "H:\\KE4102-Sam\\code\\MNIST-data\\test_images\\test_image_{0}.png"
+MNIST_TEST_IMAGES_LOCATION = "MNIST-data/t10k-images.idx3-ubyte"
+TEST_IMAGES_LOCATION = configurations.TEST_IMAGES_LOCATION
 
 # Code copied from https://github.com/datapythonista/mnist/blob/master/mnist/__init__.py
 # All non required dependencies have been removed

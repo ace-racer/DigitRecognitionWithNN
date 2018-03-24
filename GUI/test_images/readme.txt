@@ -1,0 +1,1 @@
+All generated test images will be stored here

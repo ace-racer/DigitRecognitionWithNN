@@ -1,0 +1,1 @@
+TEST_IMAGES_LOCATION = "test_images/test_image_{0}.png"

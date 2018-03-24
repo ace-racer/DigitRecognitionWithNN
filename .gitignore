@@ -3,3 +3,4 @@ MNIST-data/
 mnist_convnet_model/
 GUI/__pycache__/
 GUI/MNIST-data/
+*.png
