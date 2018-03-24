@@ -1,6 +1,6 @@
 # Using Convolutional Neural Networks to recognize handwritten images
 
-##References:
+## References:
 1. https://www.tensorflow.org/tutorials/image_recognition#usage_with_python_api
 2. https://www.tensorflow.org/tutorials/layers
 3. https://www.youtube.com/watch?v=FmpDIaiMIeA
@@ -8,7 +8,7 @@
 
 I have also made a video, please find it here: https://youtu.be/-9Pa0EPygLQ
 
-##How to run the client application in your machine?
+## How to run the client application in your machine?
 
 1. Navigate to GUI folder
 2. Install the dependencies
